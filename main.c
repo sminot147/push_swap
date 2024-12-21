@@ -6,7 +6,7 @@
 /*   By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 11:30:11 by sminot            #+#    #+#             */
-/*   Updated: 2024/12/21 17:07:46 by sminot           ###   ########.fr       */
+/*   Updated: 2024/12/21 18:17:54 by sminot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void	display_stack(t_stack *s)
 	else
 	{
 		ft_printf("Les éléments de la pile sont :\n");
-		for (int i = s->top; i >= 0; i--)
+		for (int i = 0; i <= s->top; i++)
 			ft_printf("%d ", s->value[i]);
 		ft_printf("\n");
 	}
@@ -117,7 +117,12 @@ int	main(int ac, char **av)
 		return (1);
 	if (creat_stack(&a, &b, ac, av) == -1)
 		return ((int)putstr_fd("Error\n", 2));
-	bubble_sort(ac, a, a);
+	display_stack(&a);
+	rrb(a);
+	display_stack(&a);
+	rra(a);
+	display_stack(&a);
+	//bubble_sort(ac, a, a);
 	free_all(a, b);
 	return (0);
 }

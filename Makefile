@@ -6,7 +6,7 @@
 #    By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 11:39:48 by sminot            #+#    #+#              #
-#    Updated: 2024/12/21 17:04:38 by sminot           ###   ########.fr        #
+#    Updated: 2024/12/21 18:14:54 by sminot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ FILE = main.c\
 	utils.c\
 	swap.c\
 	rotate.c\
+	reverse_rotate.c\
 	bubblesort.c\
 
 CC = cc

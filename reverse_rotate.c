@@ -1,57 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/21 16:55:05 by sminot            #+#    #+#             */
-/*   Updated: 2024/12/21 18:05:53 by sminot           ###   ########.fr       */
+/*   Created: 2024/12/21 18:10:07 by sminot            #+#    #+#             */
+/*   Updated: 2024/12/21 18:16:07 by sminot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_stack a)
+void	rra(t_stack a)
 {
 	int	temp;
 	int	i;
 
-	temp = a.value[a.top];
+	temp = a.value[0];
 	i = -1;
 	while (++i < a.top)
-		a.value[a.top - i] = a.value[a.top - 1 - i];
-	a.value[0] = temp;
-	putstr_fd("ra\n", 1);
+		a.value[i] = a.value[i + 1];
+	a.value[a.top] = temp;
+	putstr_fd("rra\n", 1);
 }
 
-void	rb(t_stack b)
+void	rrb(t_stack b)
 {
 	int	temp;
 	int	i;
 
-	temp = b.value[b.top];
+	temp = b.value[0];
 	i = -1;
 	while (++i < b.top)
-		b.value[b.top - i] = b.value[b.top - 1 - i];
-	b.value[0] = temp;
-	putstr_fd("rb\n", 1);
+		b.value[i] = b.value[i + 1];
+	b.value[b.top] = temp;
+	putstr_fd("rrb\n", 1);
 }
 
-void	rr(t_stack a, t_stack b)
+void	rrr(t_stack a, t_stack b)
 {
 	int	temp;
 	int	i;
 
-	temp = a.value[a.top];
+	temp = a.value[0];
 	i = -1;
 	while (++i < a.top)
-		a.value[a.top - i] = a.value[a.top - 1 - i];
-	a.value[0] = temp;
-	temp = b.value[b.top];
+		a.value[i] = a.value[i + 1];
+	a.value[a.top] = temp;
+	temp = b.value[0];
 	i = -1;
 	while (++i < b.top)
-		b.value[b.top - i] = b.value[b.top - 1 - i];
-	b.value[0] = temp;
-	putstr_fd("rr\n", 1);
+		b.value[i] = b.value[i + 1];
+	b.value[b.top] = temp;
+	putstr_fd("rrr\n", 1);
 }
