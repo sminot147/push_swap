@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bubblesort.c                                       :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/19 14:51:02 by sminot            #+#    #+#             */
-/*   Updated: 2024/12/21 17:07:19 by sminot           ###   ########.fr       */
+/*   Created: 2024/12/21 16:55:05 by sminot            #+#    #+#             */
+/*   Updated: 2024/12/21 17:04:54 by sminot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	bubble_sort(int ac, t_stack a, t_stack a_bis)
+void	ra(t_stack a)
 {
-	int	i;
-	int	j;
 	int	temp;
+	int	i;
 
+	temp = a.value[a.top];
 	i = -1;
-	while (++i < ac)
-	{
-		j = -1;
-		while (++j < ac - 1 - i)
-		{
-			if (a.value[j] > a.value[j + 1])
-			{
-				temp = a.value[j + 1];
-				a.value[j + 1] = a.value[j];
-				a.value[j] = temp;
-				sa(a_bis);
-			}
-			ra(a_bis);
-		}
-		while (i + 1 < ac && ac - j++)
-			ra(a_bis);
-	}
+	while (++i < a.top)
+		a.value[a.top - 1 - i] = a.value[a.top - i];
+	a.value[0] = temp;
+	putstr_fd("ra\n", 1);
 }
+

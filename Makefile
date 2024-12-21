@@ -6,13 +6,16 @@
 #    By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 11:39:48 by sminot            #+#    #+#              #
-#    Updated: 2024/12/19 18:06:42 by sminot           ###   ########.fr        #
+#    Updated: 2024/12/21 17:04:38 by sminot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 FILE = main.c\
+	utils.c\
+	swap.c\
+	rotate.c\
 	bubblesort.c\
 
 CC = cc

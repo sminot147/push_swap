@@ -1,39 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bubblesort.c                                       :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/19 14:51:02 by sminot            #+#    #+#             */
-/*   Updated: 2024/12/21 17:07:19 by sminot           ###   ########.fr       */
+/*   Created: 2024/12/21 13:49:26 by sminot            #+#    #+#             */
+/*   Updated: 2024/12/21 14:02:45 by sminot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	bubble_sort(int ac, t_stack a, t_stack a_bis)
+void	free_all(t_stack a, t_stack b)
 {
-	int	i;
-	int	j;
-	int	temp;
-
-	i = -1;
-	while (++i < ac)
-	{
-		j = -1;
-		while (++j < ac - 1 - i)
-		{
-			if (a.value[j] > a.value[j + 1])
-			{
-				temp = a.value[j + 1];
-				a.value[j + 1] = a.value[j];
-				a.value[j] = temp;
-				sa(a_bis);
-			}
-			ra(a_bis);
-		}
-		while (i + 1 < ac && ac - j++)
-			ra(a_bis);
-	}
+	if (a.value)
+		free(a.value);
+	if (b.value)
+		free(b.value);
 }

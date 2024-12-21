@@ -6,7 +6,7 @@
 /*   By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 12:05:13 by sminot            #+#    #+#             */
-/*   Updated: 2024/12/19 18:32:50 by sminot           ###   ########.fr       */
+/*   Updated: 2024/12/21 17:06:57 by sminot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,25 @@
 
 # include "../libft/include/libft.h"
 
-typedef struct pile
+typedef struct stack
 {
-	int			value;
-	struct pile	*next;
-}	t_pile;
+	int	top;
+	int	*value;
+	int	nb_max_value;
+}	t_stack;
 
-void	sort_tab(int ac, int **tab);
+//bubble_sort_tab.c
+void	bubble_sort(int ac, t_stack a, t_stack a_bis);
+
+//swap.c
+void	sa(t_stack a);
+void	sb(t_stack b);
+void	ss(t_stack a, t_stack b);
+
+//rotate.c
+void	ra(t_stack a);
+
+//utils.c
+void	free_all(t_stack a, t_stack b);
 
 #endif
