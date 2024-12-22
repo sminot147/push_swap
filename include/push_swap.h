@@ -6,7 +6,7 @@
 /*   By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 12:05:13 by sminot            #+#    #+#             */
-/*   Updated: 2024/12/22 13:08:15 by sminot           ###   ########.fr       */
+/*   Updated: 2024/12/22 16:26:37 by sminot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "../libft/include/libft.h"
 
-
 typedef struct stack
 {
 	int	top;
@@ -23,29 +22,40 @@ typedef struct stack
 	int	nb_max_value;
 }	t_stack;
 
-//bubble_sort_tab.c
-void	bubble_sort(int ac, t_stack a, t_stack a_bis);
+/*------------------------ Action -------------------------------------------*/
 
 //swap.c
-void	sa(t_stack a);
-void	sb(t_stack b);
-void	ss(t_stack a, t_stack b);
+void	sa(t_stack *a);
+void	sb(t_stack *b);
+void	ss(t_stack *a, t_stack *b);
 
 //rotate.c
-void	ra(t_stack a);
-void	rb(t_stack b);
-void	rr(t_stack a, t_stack b);
+void	ra(t_stack *a);
+void	rb(t_stack *b);
+void	rr(t_stack *a, t_stack *b);
 
 //reverse_rotate.c
-void	rra(t_stack a);
-void	rrb(t_stack b);
-void	rrr(t_stack a, t_stack b);
+void	rra(t_stack *a);
+void	rrb(t_stack *b);
+void	rrr(t_stack *a, t_stack *b);
 
 //push.c
 void	pa(t_stack *a, t_stack *b);
 void	pb(t_stack *a, t_stack *b);
 
+/*------------------------  Sort  -------------------------------------------*/
+
+//sort_stack.c
+void	start_sort(t_stack *a, t_stack *b);
+
+/*------------------------  Utils  -------------------------------------------*/
+
 //utils.c
 void	free_all(t_stack a, t_stack b);
+int		index_of_max(t_stack *a);
+int		index_of_min(t_stack *a);
+
+//bubble_sort_tab.c
+void	empty_a_and_sort_last_three(t_stack *a, t_stack *b);
 
 #endif

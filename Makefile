@@ -6,7 +6,7 @@
 #    By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 11:39:48 by sminot            #+#    #+#              #
-#    Updated: 2024/12/22 13:17:56 by sminot           ###   ########.fr        #
+#    Updated: 2024/12/22 15:49:25 by sminot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,15 @@ ACTION = swap.c\
 	reverse_rotate.c\
 	push.c\
 
+SORT_DIR = src/sort/
+
+SORT = sort_stack.c\
+
 FILE = main.c\
 	utils.c\
 	bubblesort.c\
 	$(addprefix $(ACTION_DIR), $(ACTION))\
+	$(addprefix $(SORT_DIR), $(SORT))\
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -I$(INCLUDE) -MMD -g3

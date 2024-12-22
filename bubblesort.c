@@ -6,13 +6,13 @@
 /*   By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 14:51:02 by sminot            #+#    #+#             */
-/*   Updated: 2024/12/21 17:12:10 by sminot           ###   ########.fr       */
+/*   Updated: 2024/12/22 15:58:22 by sminot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	bubble_sort(int ac, t_stack a, t_stack a_bis)
+void	bubble_sort(int ac, t_stack a, t_stack *a_bis)
 {
 	int	i;
 	int	j;

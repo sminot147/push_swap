@@ -6,7 +6,7 @@
 /*   By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 11:30:11 by sminot            #+#    #+#             */
-/*   Updated: 2024/12/22 14:07:40 by sminot           ###   ########.fr       */
+/*   Updated: 2024/12/22 16:26:48 by sminot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,16 @@ int	fill_tab(int ac, char **av, t_stack *a)
 {
 	long int	atoi_error;
 	long int	atoi_result;
+	int			i;
 
 	atoi_error = (long int)INT_MAX + 1;
-	while (ac--)
+	i = -1;
+	while (++i < ac)
 	{
-		atoi_result = ft_atoi(av[ac + 1]);
+		atoi_result = ft_atoi(av[ac - i]);
 		if (atoi_result == atoi_error)
 			return (-1);
-		a->value[ac] = (int)atoi_result;
+		a->value[i] = (int)atoi_result;
 	}
 	return (0);
 }
@@ -82,8 +84,7 @@ int	creat_stack(t_stack *a, t_stack *b, int ac, char **av)
 	}
 	if (fill_tab(ac, av, a) == -1 || twice(a->value, ac) == -1)
 	{
-		free(a->value);
-		free(b->value);
+		free_all(*a, *b);
 		return (-1);
 	}
 	a->nb_max_value = ac;
@@ -104,7 +105,7 @@ void	display_stack(t_stack *s)
 		ft_printf("Les éléments de la pile sont :\n");
 		int i = -1;
 		while(++i <= s->top)
-			ft_printf("%d ", s->value[i]);
+			ft_printf("%d\n", s->value[s->top - i]);
 		ft_printf("\n");
 	}
 }
@@ -120,28 +121,7 @@ int	main(int ac, char **av)
 		return ((int)putstr_fd("Error\n", 2));
 	display_stack(&a);
 	display_stack(&b);
-	pb(&a, &b);
-	pb(&a, &b);
-	pb(&a, &b);
-	display_stack(&a);
-	display_stack(&b);
-	ra(a);
-	rb(b);
-	display_stack(&a);
-	display_stack(&b);
-	rr(a, b);
-	display_stack(&a);
-	display_stack(&b);
-	rrr(a, b);
-	display_stack(&a);
-	display_stack(&b);
-	rra(a);
-	rrb(b);
-	display_stack(&a);
-	display_stack(&b);
-	pa(&a, &b);
-	pa(&a, &b);
-	pa(&a, &b);
+	empty_a_and_sort_last_three(&a, &b);
 	display_stack(&a);
 	display_stack(&b);
 	free_all(a, b);
