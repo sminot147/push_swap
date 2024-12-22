@@ -6,18 +6,23 @@
 #    By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 11:39:48 by sminot            #+#    #+#              #
-#    Updated: 2024/12/21 18:14:54 by sminot           ###   ########.fr        #
+#    Updated: 2024/12/22 13:17:56 by sminot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-FILE = main.c\
-	utils.c\
-	swap.c\
+ACTION_DIR = src/action/
+
+ACTION = swap.c\
 	rotate.c\
 	reverse_rotate.c\
+	push.c\
+
+FILE = main.c\
+	utils.c\
 	bubblesort.c\
+	$(addprefix $(ACTION_DIR), $(ACTION))\
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -I$(INCLUDE) -MMD -g3
@@ -46,8 +51,7 @@ $(NAME) : $(OBJ) $(LIBFT)
 
 clean :
 	$(MAKE) -C $(LIBFT_DIR) clean
-	rm -f $(OBJ)
-	rm -f $(DEPS)
+	rm -rf $(OBJ_DIR)
 
 fclean : clean 
 	$(MAKE) -C $(LIBFT_DIR) fclean

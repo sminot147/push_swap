@@ -6,7 +6,7 @@
 /*   By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 11:30:11 by sminot            #+#    #+#             */
-/*   Updated: 2024/12/21 18:17:54 by sminot           ###   ########.fr       */
+/*   Updated: 2024/12/22 14:07:40 by sminot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,10 @@ int	creat_stack(t_stack *a, t_stack *b, int ac, char **av)
 {
 	if (check_arg(ac, av) == -1)
 		return (-1);
-	a->value = ft_calloc(ac - 1, sizeof(int));
+	a->value = ft_calloc(ac, sizeof(int));
 	if (!a->value)
 		return (-1);
-	b->value = ft_calloc(ac - 1, sizeof(int));
+	b->value = ft_calloc(ac, sizeof(int));
 	if (!b->value)
 	{
 		free(a->value);
@@ -89,7 +89,7 @@ int	creat_stack(t_stack *a, t_stack *b, int ac, char **av)
 	a->nb_max_value = ac;
 	a->top = ac -1;
 	b->nb_max_value = ac;
-	b->top = 0;
+	b->top = -1;
 	return (0);
 }
 
@@ -102,7 +102,8 @@ void	display_stack(t_stack *s)
 	else
 	{
 		ft_printf("Les éléments de la pile sont :\n");
-		for (int i = 0; i <= s->top; i++)
+		int i = -1;
+		while(++i <= s->top)
 			ft_printf("%d ", s->value[i]);
 		ft_printf("\n");
 	}
@@ -118,11 +119,31 @@ int	main(int ac, char **av)
 	if (creat_stack(&a, &b, ac, av) == -1)
 		return ((int)putstr_fd("Error\n", 2));
 	display_stack(&a);
-	rrb(a);
+	display_stack(&b);
+	pb(&a, &b);
+	pb(&a, &b);
+	pb(&a, &b);
 	display_stack(&a);
+	display_stack(&b);
+	ra(a);
+	rb(b);
+	display_stack(&a);
+	display_stack(&b);
+	rr(a, b);
+	display_stack(&a);
+	display_stack(&b);
+	rrr(a, b);
+	display_stack(&a);
+	display_stack(&b);
 	rra(a);
+	rrb(b);
 	display_stack(&a);
-	//bubble_sort(ac, a, a);
+	display_stack(&b);
+	pa(&a, &b);
+	pa(&a, &b);
+	pa(&a, &b);
+	display_stack(&a);
+	display_stack(&b);
 	free_all(a, b);
 	return (0);
 }

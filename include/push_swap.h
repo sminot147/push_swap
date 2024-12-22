@@ -6,7 +6,7 @@
 /*   By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 12:05:13 by sminot            #+#    #+#             */
-/*   Updated: 2024/12/21 18:15:23 by sminot           ###   ########.fr       */
+/*   Updated: 2024/12/22 13:08:15 by sminot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,10 @@ void	rr(t_stack a, t_stack b);
 void	rra(t_stack a);
 void	rrb(t_stack b);
 void	rrr(t_stack a, t_stack b);
+
+//push.c
+void	pa(t_stack *a, t_stack *b);
+void	pb(t_stack *a, t_stack *b);
 
 //utils.c
 void	free_all(t_stack a, t_stack b);

@@ -1,0 +1,15 @@
+checker_linux
+
+push_swap_visualizer
+
+push_swap
+
+imgui.ini
+
+visu
+
+*.o
+
+*.d
+
+/obj
