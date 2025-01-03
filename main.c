@@ -6,7 +6,7 @@
 /*   By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 11:30:11 by sminot            #+#    #+#             */
-/*   Updated: 2024/12/22 16:26:48 by sminot           ###   ########.fr       */
+/*   Updated: 2025/01/03 16:35:58 by sminot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,21 +94,31 @@ int	creat_stack(t_stack *a, t_stack *b, int ac, char **av)
 	return (0);
 }
 
-void	display_stack(t_stack *s)
+#include <stdio.h>
+
+void	print_stacks(t_stack *a, t_stack *b)
 {
-	if (s->top == -1)
+	int i;
+
+	ft_printf("\nVoici l'etat des piles : \n");
+	ft_printf("a\tb\n");
+
+	for (i = 0; i < a->nb_max_value || i < b->nb_max_value; i++)
 	{
-		ft_printf("La pile est vide.\n");
+		if (i <= a->top)
+			ft_printf("%d\t", a->value[a->top - i]);
+		else
+			ft_printf("\t");
+		if (i <= b->top)
+			ft_printf("%d\n", b->value[b-> top - i]);
+		else if (i < a->top)
+			ft_printf("\n");
 	}
-	else
-	{
-		ft_printf("Les éléments de la pile sont :\n");
-		int i = -1;
-		while(++i <= s->top)
-			ft_printf("%d\n", s->value[s->top - i]);
-		ft_printf("\n");
-	}
+	ft_printf("\n");
 }
+
+
+
 
 int	main(int ac, char **av)
 {
@@ -119,11 +129,10 @@ int	main(int ac, char **av)
 		return (1);
 	if (creat_stack(&a, &b, ac, av) == -1)
 		return ((int)putstr_fd("Error\n", 2));
-	display_stack(&a);
-	display_stack(&b);
 	empty_a_and_sort_last_three(&a, &b);
-	display_stack(&a);
-	display_stack(&b);
+	//print_stacks(&a, &b);
+	stupid_sort(&a, &b);
+	//print_stacks(&a, &b);
 	free_all(a, b);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 12:05:13 by sminot            #+#    #+#             */
-/*   Updated: 2024/12/22 16:26:37 by sminot           ###   ########.fr       */
+/*   Updated: 2025/01/03 15:01:28 by sminot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	pb(t_stack *a, t_stack *b);
 
 //sort_stack.c
 void	start_sort(t_stack *a, t_stack *b);
+void	stupid_sort(t_stack *a, t_stack *b);
 
 /*------------------------  Utils  -------------------------------------------*/
 
@@ -54,8 +55,26 @@ void	start_sort(t_stack *a, t_stack *b);
 void	free_all(t_stack a, t_stack b);
 int		index_of_max(t_stack *a);
 int		index_of_min(t_stack *a);
+int		where_should_b_top_be(t_stack *a, t_stack *b);
 
 //bubble_sort_tab.c
 void	empty_a_and_sort_last_three(t_stack *a, t_stack *b);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void	print_stacks(t_stack *a, t_stack *b); //a delete!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 #endif

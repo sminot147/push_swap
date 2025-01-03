@@ -6,7 +6,7 @@
 /*   By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 14:34:44 by sminot            #+#    #+#             */
-/*   Updated: 2024/12/22 16:26:30 by sminot           ###   ########.fr       */
+/*   Updated: 2025/01/03 16:42:27 by sminot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,30 @@ void	empty_a_and_sort_last_three(t_stack *a, t_stack *b)
 		ra(a);
 	else if (index_of_max(a) == 1)
 		rra(a);
-	if (index_of_min(a) == 1)
+	if (index_of_min(a) != a->top)
 		sa(a);
+}
+
+void	stupid_sort(t_stack *a, t_stack *b)
+{
+	int	i;
+
+	while (b->top != -1)
+	{
+		i = where_should_b_top_be(a, b);
+		if (a->top - i > i)
+			while (--i >= 0)
+				rra(a);
+		else
+			while (i++ <= a->top)
+				ra(a);
+		pa(a, b);
+	}
+	i = index_of_max(a);
+	if (a->top - i > i)
+		while (--i >= 0)
+			rra(a);
+	else
+		while (i++ <= a->top)
+			ra(a);
 }
