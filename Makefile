@@ -6,7 +6,7 @@
 #    By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 11:39:48 by sminot            #+#    #+#              #
-#    Updated: 2024/12/22 15:49:25 by sminot           ###   ########.fr        #
+#    Updated: 2025/01/06 23:08:52 by sminot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,10 @@ ACTION = swap.c\
 SORT_DIR = src/sort/
 
 SORT = sort_stack.c\
+	sort_utils.c\
 
 FILE = main.c\
+	src/parsing.c\
 	utils.c\
 	bubblesort.c\
 	$(addprefix $(ACTION_DIR), $(ACTION))\

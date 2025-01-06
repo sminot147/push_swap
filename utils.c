@@ -6,78 +6,78 @@
 /*   By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 13:49:26 by sminot            #+#    #+#             */
-/*   Updated: 2025/01/03 15:39:18 by sminot           ###   ########.fr       */
+/*   Updated: 2025/01/06 23:26:12 by sminot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <limits.h>
 
-void	free_all(t_stack a, t_stack b)
+void	free_all(t_stack *a, t_stack *b, int ac)
 {
-	if (a.value)
-		free(a.value);
-	if (b.value)
-		free(b.value);
-}
-
-int	index_of_max(t_stack *a)
-{
-	int	max;
-	int	index_of_max;
 	int	i;
 
-	max = INT_MIN;
-	i = -1;
-	while (++i <= a->top)
+	if (a->value)
+		free(a->value);
+	if (b->value)
+		free(b->value);
+	if (b->nb_action)
 	{
-		if (a->value[i] > max)
-		{
-			max = a->value[i];
-			index_of_max = i;
-		}
+		i = -1;
+		while (++i < ac && b->nb_action[i])
+			free(b->nb_action[i]);
+		free(b->nb_action);
 	}
-	return (index_of_max);
 }
 
-int	index_of_min(t_stack *a)
+int	min(int a, int b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
+
+int	max(int a, int b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
+
+int	min_index(int *tab, int nb_value)
 {
 	int	min;
-	int	index_of_min;
+	int	min_index;
 	int	i;
 
 	min = INT_MAX;
 	i = -1;
-	while (++i <= a->top)
+	while (++i <= nb_value)
 	{
-		if (a->value[i] < min)
+		if (tab[i] <= min)
 		{
-			min = a->value[i];
-			index_of_min = i;
+			min = tab[i];
+			min_index = i;
 		}
 	}
-	return (index_of_min);
+	return (min_index);
 }
 
-int	where_should_b_top_be(t_stack *a, t_stack *b)
+int	max_index(int *tab, int nb_value)
 {
+	int	max;
+	int	max_index;
 	int	i;
-	int	val_before_i;
-	int	val_i;
 
+	max = INT_MIN;
 	i = -1;
-	while (++i <= a->top)
+	while (++i <= nb_value)
 	{
-		if (i != 0)
-			val_before_i = a->value[i - 1];
-		else
-			val_before_i = a->value[a->top];
-		val_i = a->value[i];
-		if (i != index_of_max(a) && val_before_i > b->value[b->top] &&
-			b->value[b->top] > val_i)
-			return (i);
+		if (tab[i] > max)
+		{
+			max = tab[i];
+			max_index = i;
+		}
 	}
-	if (b->value[b->top] < a->value[0])
-		return (index_of_min(a) + 1);
-	return (index_of_max(a));
+	return (max_index);
 }

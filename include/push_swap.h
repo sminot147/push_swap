@@ -6,7 +6,7 @@
 /*   By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 12:05:13 by sminot            #+#    #+#             */
-/*   Updated: 2025/01/03 15:01:28 by sminot           ###   ########.fr       */
+/*   Updated: 2025/01/06 23:21:24 by sminot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,16 @@
 
 # include "../libft/include/libft.h"
 
+//nb_action[][0] : nb of ra		nb_action[][4] : nb action with rr ra et rb
+//nb_action[][1] : nb of rra	nb_action[][5] : nb action with rrr rra et rrb
+//nb_action[][2] : nb of rb		nb_action[][6] : nb action with ra et rrb
+//nb_action[][3] : nb of rrb	nb_action[][7] : nb action with rra et rb
+//nb_action[][8] : min of nb_action
 typedef struct stack
 {
 	int	top;
 	int	*value;
-	int	nb_max_value;
+	int	**nb_action;
 }	t_stack;
 
 /*------------------------ Action -------------------------------------------*/
@@ -47,15 +52,28 @@ void	pb(t_stack *a, t_stack *b);
 
 //sort_stack.c
 void	start_sort(t_stack *a, t_stack *b);
-void	stupid_sort(t_stack *a, t_stack *b);
+void	sort(t_stack *a, t_stack *b);
+
+//sort_utils.c
+int		index_should_nb_be(t_stack *a, int nb);
+int		index_min_action(t_stack *b);
 
 /*------------------------  Utils  -------------------------------------------*/
 
 //utils.c
-void	free_all(t_stack a, t_stack b);
-int		index_of_max(t_stack *a);
-int		index_of_min(t_stack *a);
-int		where_should_b_top_be(t_stack *a, t_stack *b);
+void	free_all(t_stack *a, t_stack *b, int ac);
+int		min(int a, int b);
+int		max(int a, int b);
+int		min_index(int *tab, int nb_value);
+int		max_index(int *tab, int nb_value);
+
+/*------------------------  Parsing  -----------------------------------------*/
+//parsing.c
+int		creat_stack(t_stack *a, t_stack *b, int ac, char **av);
+
+
+
+
 
 //bubble_sort_tab.c
 void	empty_a_and_sort_last_three(t_stack *a, t_stack *b);
