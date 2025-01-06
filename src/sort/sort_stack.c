@@ -6,7 +6,7 @@
 /*   By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 14:34:44 by sminot            #+#    #+#             */
-/*   Updated: 2025/01/06 23:30:45 by sminot           ###   ########.fr       */
+/*   Updated: 2025/01/07 00:14:58 by sminot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ void	calc_nb_action(t_stack *a, t_stack *b)
 		b->nb_action[i][5] = max(b->nb_action[i][1], b->nb_action[i][3]);
 		b->nb_action[i][6] = b->nb_action[i][0] + b->nb_action[i][3];
 		b->nb_action[i][7] = b->nb_action[i][1] + b->nb_action[i][2];
-		b->nb_action[i][8] = min(b->nb_action[i][4], );
+		b->nb_action[i][8] = min(min(b->nb_action[i][4], b->nb_action[i][5]),
+				min(b->nb_action[i][6], b->nb_action[i][7]));
 	}
 }
 
