@@ -6,7 +6,7 @@
 /*   By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 12:05:13 by sminot            #+#    #+#             */
-/*   Updated: 2025/01/06 23:21:24 by sminot           ###   ########.fr       */
+/*   Updated: 2025/01/08 15:56:58 by sminot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,15 @@ void	start_sort(t_stack *a, t_stack *b);
 void	sort(t_stack *a, t_stack *b);
 
 //sort_utils.c
-int		index_should_nb_be(t_stack *a, int nb);
+int		futur_index_nb(t_stack *a, int nb);
 int		index_min_action(t_stack *b);
+void	calc_nb_action(t_stack *a, t_stack *b);
+
+//sort_with.c
+void	sort_with_rr(t_stack *a, t_stack *b, int nb_to_sort);
+void	sort_with_rrr(t_stack *a, t_stack *b, int nb_to_sort);
+void	sort_with_ra_rrb(t_stack *a, t_stack *b, int nb_to_sort);
+void	sort_with_rra_rb(t_stack *a, t_stack *b, int nb_to_sort);
 
 /*------------------------  Utils  -------------------------------------------*/
 
@@ -75,8 +82,6 @@ int		creat_stack(t_stack *a, t_stack *b, int ac, char **av);
 
 
 
-//bubble_sort_tab.c
-void	empty_a_and_sort_last_three(t_stack *a, t_stack *b);
 
 
 

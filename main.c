@@ -6,7 +6,7 @@
 /*   By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 11:30:11 by sminot            #+#    #+#             */
-/*   Updated: 2025/01/06 23:24:12 by sminot           ###   ########.fr       */
+/*   Updated: 2025/01/08 16:18:04 by sminot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ int	main(int ac, char **av)
 		return (1);
 	if (creat_stack(&a, &b, ac, av) == -1)
 		return ((int)putstr_fd("Error\n", 2));
-	empty_a_and_sort_last_three(&a, &b);
-	print_stacks(&a, &b);
+	start_sort(&a, &b);
+	//print_stacks(&a, &b);
 	sort(&a, &b);
-	print_stacks(&a, &b);
+	//print_stacks(&a, &b);
 	free_all(&a, &b, ac);
 	return (0);
 }

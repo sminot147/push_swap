@@ -6,13 +6,13 @@
 /*   By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 14:34:44 by sminot            #+#    #+#             */
-/*   Updated: 2025/01/07 00:14:58 by sminot           ###   ########.fr       */
+/*   Updated: 2025/01/08 16:17:45 by sminot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	empty_a_and_sort_last_three(t_stack *a, t_stack *b)
+void	start_sort(t_stack *a, t_stack *b)
 {
 	while (a->top >= 3)
 		pb(a, b);
@@ -24,31 +24,23 @@ void	empty_a_and_sort_last_three(t_stack *a, t_stack *b)
 		sa(a);
 }
 
-//nb_action[][0] : nb of ra		nb_action[][4] : nb action with rr ra et rb
-//nb_action[][1] : nb of rra	nb_action[][5] : nb action with rrr rra et rrb
-//nb_action[][2] : nb of rb		nb_action[][6] : nb action with ra et rrb
-//nb_action[][3] : nb of rrb	nb_action[][7] : nb action with rra et rb
-//nb_action[][8] : min of nb_action
-void	calc_nb_action(t_stack *a, t_stack *b)
+void	sort_the_best_nb(t_stack *a, t_stack *b, int nb_to_sort)
 {
 	int	i;
-	int	temp;
 
-	i = -1;
-	while (++i <= b->top)
-	{
-		temp = index_should_nb_be(a, b->value[i]);
-		b->nb_action[i][0] = a->top - temp + 1;
-		b->nb_action[i][1] = temp;
-		b->nb_action[i][2] = b->top - i;
-		b->nb_action[i][3] = i + 1;
-		b->nb_action[i][4] = max(b->nb_action[i][0], b->nb_action[i][2]);
-		b->nb_action[i][5] = max(b->nb_action[i][1], b->nb_action[i][3]);
-		b->nb_action[i][6] = b->nb_action[i][0] + b->nb_action[i][3];
-		b->nb_action[i][7] = b->nb_action[i][1] + b->nb_action[i][2];
-		b->nb_action[i][8] = min(min(b->nb_action[i][4], b->nb_action[i][5]),
-				min(b->nb_action[i][6], b->nb_action[i][7]));
-	}
+	i = 3;
+	//print_stacks(a, b);
+	while (b->nb_action[nb_to_sort][++i] != b->nb_action[nb_to_sort][8])
+		;
+	if (i == 4)
+		sort_with_rr(a, b, nb_to_sort);
+	if (i == 5)
+		sort_with_rrr(a, b, nb_to_sort);
+	if (i == 6)
+		sort_with_ra_rrb(a, b, nb_to_sort);
+	if (i == 7)
+		sort_with_rra_rb(a, b, nb_to_sort);
+	pa(a, b);
 }
 
 void	sort(t_stack *a, t_stack *b)
@@ -57,16 +49,9 @@ void	sort(t_stack *a, t_stack *b)
 
 	while (b->top != -1)
 	{
-		i = index_should_nb_be(a, b->value[b->top]);
+		i = futur_index_nb(a, b->value[b->top]);
 		calc_nb_action(a, b);
-		print_stacks(a, b);
-		if (a->top - i >= i)
-			while (--i >= 0)
-				rra(a);
-		else
-			while (i++ <= a->top)
-				ra(a);
-		pa(a, b);
+		sort_the_best_nb(a, b, index_min_action(b));
 	}
 	i = max_index(a->value, a->top);
 	if (a->top - i > i)

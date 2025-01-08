@@ -6,7 +6,7 @@
 #    By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 11:39:48 by sminot            #+#    #+#              #
-#    Updated: 2025/01/06 23:08:52 by sminot           ###   ########.fr        #
+#    Updated: 2025/01/08 15:57:18 by sminot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SORT_DIR = src/sort/
 
 SORT = sort_stack.c\
 	sort_utils.c\
+	sort_with.c\
 
 FILE = main.c\
 	src/parsing.c\
