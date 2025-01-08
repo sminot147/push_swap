@@ -6,7 +6,7 @@
 /*   By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 18:10:07 by sminot            #+#    #+#             */
-/*   Updated: 2024/12/22 15:56:35 by sminot           ###   ########.fr       */
+/*   Updated: 2025/01/08 17:51:30 by sminot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	rrb(t_stack *b)
 	int	temp;
 	int	i;
 
-	if (b->top > 1)
+	if (b->top > 0)
 	{
 		temp = b->value[0];
 		i = -1;
@@ -57,7 +57,7 @@ void	rrr(t_stack *a, t_stack *b)
 			a->value[i] = a->value[i + 1];
 		a->value[a->top] = temp;
 	}
-	if (b->top > 1)
+	if (b->top > 0)
 	{
 		temp = b->value[0];
 		i = -1;

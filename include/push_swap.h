@@ -6,7 +6,7 @@
 /*   By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 12:05:13 by sminot            #+#    #+#             */
-/*   Updated: 2025/01/08 15:56:58 by sminot           ###   ########.fr       */
+/*   Updated: 2025/01/08 18:10:48 by sminot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct stack
 {
 	int	top;
 	int	*value;
+	int	nb_value_max;
 	int	**nb_action;
 }	t_stack;
 

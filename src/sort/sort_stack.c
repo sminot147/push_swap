@@ -6,7 +6,7 @@
 /*   By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 14:34:44 by sminot            #+#    #+#             */
-/*   Updated: 2025/01/08 16:17:45 by sminot           ###   ########.fr       */
+/*   Updated: 2025/01/08 18:57:09 by sminot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,24 @@ void	start_sort(t_stack *a, t_stack *b)
 		sa(a);
 }
 
-void	sort_the_best_nb(t_stack *a, t_stack *b, int nb_to_sort)
+void	sort_the_best_nb(t_stack *a, t_stack *b, int index)
 {
 	int	i;
+	int	min_action;
 
 	i = 3;
-	//print_stacks(a, b);
-	while (b->nb_action[nb_to_sort][++i] != b->nb_action[nb_to_sort][8])
+	min_action = min(min(b->nb_action[index][4], b->nb_action[index][5]),
+			min(b->nb_action[index][6], b->nb_action[index][7]));
+	while (b->nb_action[index][++i] != min_action)
 		;
 	if (i == 4)
-		sort_with_rr(a, b, nb_to_sort);
+		sort_with_rr(a, b, index);
 	if (i == 5)
-		sort_with_rrr(a, b, nb_to_sort);
+		sort_with_rrr(a, b, index);
 	if (i == 6)
-		sort_with_ra_rrb(a, b, nb_to_sort);
+		sort_with_ra_rrb(a, b, index);
 	if (i == 7)
-		sort_with_rra_rb(a, b, nb_to_sort);
+		sort_with_rra_rb(a, b, index);
 	pa(a, b);
 }
 
@@ -49,8 +51,8 @@ void	sort(t_stack *a, t_stack *b)
 
 	while (b->top != -1)
 	{
-		i = futur_index_nb(a, b->value[b->top]);
 		calc_nb_action(a, b);
+		//print_stacks(a, b);
 		sort_the_best_nb(a, b, index_min_action(b));
 	}
 	i = max_index(a->value, a->top);

@@ -6,7 +6,7 @@
 /*   By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 16:48:36 by sminot            #+#    #+#             */
-/*   Updated: 2025/01/08 16:15:22 by sminot           ###   ########.fr       */
+/*   Updated: 2025/01/08 18:58:37 by sminot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	futur_index_nb(t_stack *a, int nb)
 //nb_action[][1] : nb of rra	nb_action[][5] : nb action with rrr rra et rrb
 //nb_action[][2] : nb of rb		nb_action[][6] : nb action with ra et rrb
 //nb_action[][3] : nb of rrb	nb_action[][7] : nb action with rra et rb
-//nb_action[][8] : min of nb_action
+//nb_action[][8] : min of nb_action + ajustement for middle
 void	calc_nb_action(t_stack *a, t_stack *b)
 {
 	int	i;
@@ -70,7 +70,7 @@ void	calc_nb_action(t_stack *a, t_stack *b)
 	while (++i <= b->top)
 	{
 		temp = futur_index_nb(a, b->value[i]);
-		b->nb_action[i][0] = a->top - temp  + 1;
+		b->nb_action[i][0] = a->top - temp + 1;
 		b->nb_action[i][1] = temp;
 		b->nb_action[i][2] = b->top - i;
 		b->nb_action[i][3] = i + 1;
@@ -80,5 +80,7 @@ void	calc_nb_action(t_stack *a, t_stack *b)
 		b->nb_action[i][7] = b->nb_action[i][1] + b->nb_action[i][2];
 		b->nb_action[i][8] = min(min(b->nb_action[i][4], b->nb_action[i][5]),
 				min(b->nb_action[i][6], b->nb_action[i][7]));
+		if (a->nb_value_max / 4 < temp && temp < (a->nb_value_max / 4 * 3))
+			b->nb_action[i][8] -= min(temp / 50, (a->top - temp) / 50);
 	}
 }

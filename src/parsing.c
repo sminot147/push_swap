@@ -6,7 +6,7 @@
 /*   By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 22:07:25 by sminot            #+#    #+#             */
-/*   Updated: 2025/01/06 23:22:47 by sminot           ###   ########.fr       */
+/*   Updated: 2025/01/08 18:31:56 by sminot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int	fill_tab(int ac, char **av, t_stack *a)
 			return (-1);
 		a->value[i] = (int)atoi_result;
 	}
+	a->nb_value_max = ac;
 	return (0);
 }
 
