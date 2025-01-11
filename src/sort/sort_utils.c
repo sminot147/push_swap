@@ -6,7 +6,7 @@
 /*   By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 16:48:36 by sminot            #+#    #+#             */
-/*   Updated: 2025/01/08 19:39:33 by sminot           ###   ########.fr       */
+/*   Updated: 2025/01/11 08:35:36 by sminot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,6 @@ int	futur_index_nb(t_stack *a, int nb)
 	return (max_ind);
 }
 
-//nb_action[][0] : nb of ra		nb_action[][4] : nb action with rr ra et rb
-//nb_action[][1] : nb of rra	nb_action[][5] : nb action with rrr rra et rrb
-//nb_action[][2] : nb of rb		nb_action[][6] : nb action with ra et rrb
-//nb_action[][3] : nb of rrb	nb_action[][7] : nb action with rra et rb
-//nb_action[][8] : min of nb_action + ajustement for middle
 void	calc_nb_action(t_stack *a, t_stack *b)
 {
 	int	i;

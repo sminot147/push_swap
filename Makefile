@@ -6,11 +6,17 @@
 #    By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 11:39:48 by sminot            #+#    #+#              #
-#    Updated: 2025/01/08 15:57:18 by sminot           ###   ########.fr        #
+#    Updated: 2025/01/11 08:28:14 by sminot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
+
+SRC_DIR = src/
+
+SRC_FILE = main.c\
+	parsing.c\
+	utils.c\
 
 ACTION_DIR = src/action/
 
@@ -25,10 +31,7 @@ SORT = sort_stack.c\
 	sort_utils.c\
 	sort_with.c\
 
-FILE = main.c\
-	src/parsing.c\
-	utils.c\
-	bubblesort.c\
+FILE = $(addprefix $(SRC_DIR), $(SRC_FILE))\
 	$(addprefix $(ACTION_DIR), $(ACTION))\
 	$(addprefix $(SORT_DIR), $(SORT))\
 
@@ -67,7 +70,7 @@ fclean : clean
 
 force :
 
-re : fclean, all
+re : fclean all
 
 -include $(DEPS)
 

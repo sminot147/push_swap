@@ -6,14 +6,14 @@
 /*   By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 22:07:25 by sminot            #+#    #+#             */
-/*   Updated: 2025/01/08 18:31:56 by sminot           ###   ########.fr       */
+/*   Updated: 2025/01/11 08:34:41 by sminot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <limits.h>
 
-int	check_arg(int ac, char **av)
+static int	check_arg(int ac, char **av)
 {
 	size_t	i;
 	char	c;
@@ -34,7 +34,7 @@ int	check_arg(int ac, char **av)
 	return (0);
 }
 
-int	twice(int *value, int ac)
+static int	twice(int *value, int ac)
 {
 	int	i;
 	int	j;
@@ -50,7 +50,7 @@ int	twice(int *value, int ac)
 	return (0);
 }
 
-int	fill_tab(int ac, char **av, t_stack *a)
+static int	fill_tab(int ac, char **av, t_stack *a)
 {
 	long int	atoi_error;
 	long int	atoi_result;
@@ -69,7 +69,7 @@ int	fill_tab(int ac, char **av, t_stack *a)
 	return (0);
 }
 
-int	creat_nb_action(t_stack *b, int ac)
+static int	creat_nb_action(t_stack *b, int ac)
 {
 	int	i;
 

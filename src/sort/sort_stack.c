@@ -6,13 +6,13 @@
 /*   By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 14:34:44 by sminot            #+#    #+#             */
-/*   Updated: 2025/01/08 18:57:09 by sminot           ###   ########.fr       */
+/*   Updated: 2025/01/11 08:33:42 by sminot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	start_sort(t_stack *a, t_stack *b)
+static void	start_sort(t_stack *a, t_stack *b)
 {
 	while (a->top >= 3)
 		pb(a, b);
@@ -24,7 +24,7 @@ void	start_sort(t_stack *a, t_stack *b)
 		sa(a);
 }
 
-void	sort_the_best_nb(t_stack *a, t_stack *b, int index)
+static void	sort_the_best_nb(t_stack *a, t_stack *b, int index)
 {
 	int	i;
 	int	min_action;
@@ -49,10 +49,10 @@ void	sort(t_stack *a, t_stack *b)
 {
 	int	i;
 
+	start_sort(a, b);
 	while (b->top != -1)
 	{
 		calc_nb_action(a, b);
-		//print_stacks(a, b);
 		sort_the_best_nb(a, b, index_min_action(b));
 	}
 	i = max_index(a->value, a->top);

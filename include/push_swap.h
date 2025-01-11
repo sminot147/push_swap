@@ -6,7 +6,7 @@
 /*   By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 12:05:13 by sminot            #+#    #+#             */
-/*   Updated: 2025/01/08 18:10:48 by sminot           ###   ########.fr       */
+/*   Updated: 2025/01/11 08:33:16 by sminot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	pb(t_stack *a, t_stack *b);
 /*------------------------  Sort  -------------------------------------------*/
 
 //sort_stack.c
-void	start_sort(t_stack *a, t_stack *b);
 void	sort(t_stack *a, t_stack *b);
 
 //sort_utils.c
@@ -78,27 +77,5 @@ int		max_index(int *tab, int nb_value);
 /*------------------------  Parsing  -----------------------------------------*/
 //parsing.c
 int		creat_stack(t_stack *a, t_stack *b, int ac, char **av);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-void	print_stacks(t_stack *a, t_stack *b); //a delete!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 #endif
