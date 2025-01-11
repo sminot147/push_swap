@@ -6,13 +6,13 @@ push_swap
 
 imgui.ini
 
-visu
-
 *.o
 
 *.d
 
 /obj
+
+visu
 
 complexity
 
