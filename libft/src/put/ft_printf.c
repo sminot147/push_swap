@@ -6,13 +6,12 @@
 /*   By: sminot <simeon.minot@outlook.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 07:01:00 by sminot            #+#    #+#             */
-/*   Updated: 2024/12/18 13:59:54 by sminot           ###   ########.fr       */
+/*   Updated: 2025/01/21 11:16:30 by sminot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdarg.h>
-#include <unistd.h>
 
 static ssize_t	putnb_base(unsigned int nb, char *base)
 {
